@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\testController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
@@ -55,4 +56,4 @@ Route::controller(userController::class)->group(function(){
     Route::get('home', 'showHome')->name('h');
 });
 
-
+Route::get('t', testController::class);
