@@ -49,7 +49,10 @@ Route::get('/user/{id}', function($id){
     return view('/user', ['user'=> $user]);
 })->name('view.user');
 
-Route::get('test', [userController::class, 'showMessage'])->name('test');
-Route::get('uzer/{id}', [userController::class, 'showUser'])->name('u');
-Route::get('home', [userController::class, 'showHome'])->name('h');
+Route::controller(userController::class)->group(function(){
+    Route::get('test', 'showMessage')->name('test');
+    Route::get('uzer/{id}',  'showUser')->name('u');
+    Route::get('home', 'showHome')->name('h');
+});
+
 
